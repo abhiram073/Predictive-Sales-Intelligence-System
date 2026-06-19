@@ -1,7 +1,10 @@
 import axios from "axios";
 
+const rawURL = import.meta.env.VITE_API_URL || "http://localhost:8000/api/v1";
+const baseURL = rawURL.endsWith("/api/v1") ? rawURL : `${rawURL}/api/v1`;
+
 const api = axios.create({
-  baseURL: import.meta.env.VITE_API_URL || "http://localhost:8000/api/v1",
+  baseURL,
   headers: {
     "Content-Type": "application/json",
   },
@@ -63,7 +66,8 @@ export const getDynamicTopProducts = () => api.get("/forecasting/top-products");
 
 export const getReportsList = () => api.get("/reports/");
 export const getReportDownloadUrl = (datasetId: number) => {
-  const base = import.meta.env.VITE_API_URL || "http://localhost:8000/api/v1";
+  const rawBase = import.meta.env.VITE_API_URL || "http://localhost:8000/api/v1";
+  const base = rawBase.endsWith("/api/v1") ? rawBase : `${rawBase}/api/v1`;
   return `${base}/forecasting/reports/download/${datasetId}`;
 };
 
