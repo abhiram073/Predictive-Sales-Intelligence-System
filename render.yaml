@@ -19,6 +19,8 @@ services:
           type: redis
           name: sales-optima-redis
           property: connectionString
+      - key: PYTHON_VERSION
+        value: 3.11.5
       - key: JWT_SECRET
         generateValue: true
       - key: JWT_ALGORITHM
