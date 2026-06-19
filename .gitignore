@@ -1,0 +1,43 @@
+# Dependency directories
+node_modules/
+jspm_packages/
+web_packages/
+
+# Build outputs
+dist/
+build/
+out/
+.next/
+
+# Python caches and virtual environments
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+ENV/
+env/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Local databases and development files
+*.db
+*.sqlite
+backend/test.db
+.env
+backend/.env
+
+# Local machine storage for uploads, models, and reports
+uploads/*
+!uploads/.gitkeep
+models/*
+!models/.gitkeep
+reports/*
+!reports/.gitkeep
+
+# IDEs and System files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.log
