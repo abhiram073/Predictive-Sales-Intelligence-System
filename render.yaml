@@ -30,8 +30,8 @@ services:
   - type: web
     name: sales-optima-frontend
     env: static
-    buildCommand: cd frontend && npm install && npm run build
-    publishDir: frontend/dist
+    buildCommand: npm install && npm run build
+    publishDir: dist
     rootDir: frontend
     envVars:
       - key: VITE_API_URL
@@ -56,7 +56,7 @@ redis:
 #    name: sales-optima-celery-worker
 #    env: python
 #    buildCommand: pip install -r requirements.txt
-#    startCommand: celery -A core.celery_app worker --loglevel=info
+#    startCommand: [ -d backend ] && cd backend; celery -A core.celery_app worker --loglevel=info -Q main-queue,ml-queue,celery
 #    rootDir: backend
 #    envVars:
 #      - key: DATABASE_URL
